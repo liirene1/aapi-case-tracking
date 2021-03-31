@@ -1,3 +1,37 @@
+V1:
+Priorities #1:
+1. Display Map with pins
+  Map has legend for pins - yellow = assault, red = death
+2. Display Article View (most recent 25)
+3. Admin - Add Article
+  3a. Google Maps autocomplete for Location field
+4. Map/Article views look nicely designed, Admin views can just use MaterialUI or SemanticUI
+5. Split screen functionality
+  on load:map on left, articles on right
+  bar/arrow button in the middle to expand map to full screen, bar to move to the right, arrow button changes direction   
+
+Next #2:  
+1. Admin can edit or delete own article. Superadmin can edit or delete any
+2. Article View - how to handle next 25 - scroll fetch?
+3. When user clicks on pin on map, modal pops up with articles for that location. Hides article view.
+4. Team Page - for our dev team & editor contributers
+
+Final #3:
+1. Google Analytics to track if people are visiting the site, location, do users come back
+
+
+V2: Mine data off social media or grab from AAPI database
+
+
+IL 3/30 Goal: Set up basic views
+3/31: Set up redux flow, get 3 mock articles to render
+4/1: Split screen view - article on left, get map to render, get pins to display
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
