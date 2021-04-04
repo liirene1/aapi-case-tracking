@@ -1,4 +1,5 @@
 export function addArticle(payload) {
+  //TODO: add article to DB
   return { type: "ADD_ARTICLE", payload };
 }
 

@@ -5,7 +5,7 @@ Priorities #1:
 2. Display Article View (most recent 25)
 3. Admin - Add Article
   3a. Google Maps autocomplete for Location field
-4. Map/Article views look nicely designed, Admin views can just use MaterialUI or SemanticUI
+4. Map/Article views look nicely styled
 5. Split screen functionality
   on load:map on left, articles on right
   bar/arrow button in the middle to expand map to full screen, bar to move to the right, arrow button changes direction   
@@ -15,9 +15,11 @@ Next #2:
 2. Article View - how to handle next 25 - scroll fetch?
 3. When user clicks on pin on map, modal pops up with articles for that location. Hides article view.
 4. Team Page - for our dev team & editor contributers
+  4a. Team Page has link to Admin signin page
 
 Final #3:
 1. Google Analytics to track if people are visiting the site, location, do users come back
+2. WE NEED A NAME! 
 
 
 V2: Mine data off social media or grab from AAPI database

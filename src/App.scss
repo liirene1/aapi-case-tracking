@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: black;
+}
+
+.divider {
+  width: 10vw;
+}
+
+.split-view {
+  > div {
+    display: inline-block;
+  }
+  .map-container {
+    width: 45vw;
+    float: left;
+  }
+
+  .divider {
+    float: left;
+  }
+
+  .article-container {
+    width: 40vw;
+    float: right;
+  }
+}
+
+.map-view {
+  div {
+    display: inline-block;
+  }
+
+  .map-container {
+    width: 85vw;
+    float: left;
+  }
+
+  .divider {
+    float: left;
+  }
+}
