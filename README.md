@@ -25,7 +25,8 @@ V2: Mine data off social media or grab from AAPI database
 
 IL 3/30 Goal: Set up basic views
 4/3: Set up redux flow, get 3 mock articles to render
-4/1: Split screen view - article on left, get map to render, get pins to display
+4/4: Split screen view - article on left, get map to render, get pins to display
+4/5: Display map & pins & legend  
 
 ------------------------------------------------------------------------------------------------------------
 
