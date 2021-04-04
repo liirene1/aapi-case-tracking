@@ -1,3 +1,5 @@
+import React from "react";
+import ArticleList from "./components/ArticleList";
 import './App.css';
 
 function App() {
@@ -6,6 +8,9 @@ function App() {
       <header className="App-header">
         MAP
       </header>
+      <div>
+        <ArticleList />
+      </div>
     </div>
   );
 }
