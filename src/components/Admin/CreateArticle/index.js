@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { Input, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
 import { addArticle } from "../../../actions";
 import "./index.scss";
-import { GOOGLE_API_KEY } from "../../../keys";
 
 const CreateArticle = ({ articles, onAddArticle }) => {
   const [date, setDate] = useState("");
@@ -30,7 +29,7 @@ const CreateArticle = ({ articles, onAddArticle }) => {
 
       <InputLabel> Location* </InputLabel>
       <GooglePlacesAutocomplete
-        apiKey={GOOGLE_API_KEY}
+        apiKey={process.env.REACT_APP_GOOGLE_API_KEY}
         selectProps={{
           onChange: setLocation,
         }}

@@ -1,6 +1,5 @@
 import React from "react";
 import Link from '@material-ui/core/Link';
-import RoomIcon from '@material-ui/icons/Room';
 import TimelineItem from '@material-ui/lab/TimelineItem';
 import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
 import TimelineConnector from '@material-ui/lab/TimelineConnector';
@@ -9,7 +8,7 @@ import TimelineDot from '@material-ui/lab/TimelineDot';
 import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
 import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
-
+import { redDot, yellowDot } from "../../constants";
 import "./index.css";
 
 const Article = ({ article }) => {
@@ -22,8 +21,8 @@ const Article = ({ article }) => {
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineDot>
-          { violenceType === "assault" && <RoomIcon style={{ color:"yellow" }}/> }
-          { violenceType === "death" && <RoomIcon style={{ color:"red" }}/> }
+          { violenceType === "assault" && <img src={yellowDot} />}
+          { violenceType === "death" && <img src={redDot} /> }
         </TimelineDot>
         <TimelineConnector />
       </TimelineSeparator>

@@ -1,0 +1,20 @@
+.legend {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 120px;
+  width: 160px;
+  background: #fff;
+  margin: 10px;
+  border: 3px solid #000;
+  z-index: 5;
+
+  h4 {
+    margin-top:5px;
+    margin-bottom: 5px;
+  }
+
+  span {
+    font-size: 18px;
+  }
+}

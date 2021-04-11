@@ -17,9 +17,8 @@ Next #2:
 
 Final #3:
 1. Google Analytics to track if people are visiting the site, location, do users come back
-2. WE NEED A NAME for the site!
-3. Team Page - for our dev team & editor contributers
-  4a. Team Page has link to Admin signin page
+2. Header - WE NEED A NAME for the site!
+3. Footer- for our dev team & editor contributers & link to Admin signin page
 4. When article is within a week for location, pin will bounce (animation)
 https://developers.google.com/maps/documentation/javascript/markers
 
@@ -29,12 +28,11 @@ V2: Mine data off social media or grab from AAPI database
 IL 3/30: Set up basic views
 4/3: Set up redux flow, get 3 mock articles to render
 4/10: Display map & pins, create route for form
-4/11: react timeline for article view, add Google Maps autocomplete for location field, custom pins,
+4/11: react timeline for article view, add Google Maps autocomplete for location field, custom pins, display legend
 Goal:
-4/11: Fix split screen view, display legend
 4/17: Can add article to DB, can get articles from DB (update redux flow)
-4/18: Style article and map view, user click on pin functionality, error handling
-
+4/18: Fix split screen view, Style article and map view, user click on pin functionality, error handling
+(https://www.npmjs.com/package/react-split-pane)
 
 Database fields:
 Article table:
