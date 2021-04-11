@@ -1,29 +1,40 @@
 import React from "react";
+import Link from '@material-ui/core/Link';
 import RoomIcon from '@material-ui/icons/Room';
+import TimelineItem from '@material-ui/lab/TimelineItem';
+import TimelineSeparator from '@material-ui/lab/TimelineSeparator';
+import TimelineConnector from '@material-ui/lab/TimelineConnector';
+import TimelineContent from '@material-ui/lab/TimelineContent';
+import TimelineDot from '@material-ui/lab/TimelineDot';
+import TimelineOppositeContent from '@material-ui/lab/TimelineOppositeContent';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
 import "./index.css";
 
-//TODO: pin svgs - yellow for assaults, red for deaths
 const Article = ({ article }) => {
-    const { date, headline, location, newsLink, donationLink, violenceType } = article;
-    return (
-      <div className="article">
-        { violenceType === "assault" && <RoomIcon style={{ color:"orange" }}/> }
-        { violenceType === "death" && <RoomIcon style={{ color:"red" }}/> }
-        <a href={newsLink} className="news-link">
-          <h3 className="headline"> { headline } </h3>
-        </a>
-        <div>
-          <p className="date"> {date} </p>
-          <p className="location"> {location} </p>
-          { donationLink &&
-            <a href={donationLink} className="donation-link">
-              <p> Donate </p>
-            </a>
-          }
-        </div>
-      </div>
-    )
+  const { date, headline, location, newsLink, donationLink, violenceType } = article;
+  return (
+    <TimelineItem>
+      <TimelineOppositeContent>
+        <Typography color="textSecondary" variant="body2">{date}</Typography>
+        <Typography>{location} </Typography>
+      </TimelineOppositeContent>
+      <TimelineSeparator>
+        <TimelineDot>
+          { violenceType === "assault" && <RoomIcon style={{ color:"orange" }}/> }
+          { violenceType === "death" && <RoomIcon style={{ color:"red" }}/> }
+        </TimelineDot>
+        <TimelineConnector />
+      </TimelineSeparator>
+      <TimelineContent>
+        <Paper elevation={3}>
+          <Typography variant="h5"><Link href={newsLink}>{headline} </Link></Typography>
+          { donationLink && <Typography><Link href={donationLink}> Donate </Link></Typography>}
+        </Paper>
+      </TimelineContent>
+    </TimelineItem>
+  )
 }
 
 export default Article;

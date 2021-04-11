@@ -5,3 +5,7 @@
 .article p {
   display: inline-block;
 }
+
+.MuiPaper-rounded {
+  text-align: center;
+}

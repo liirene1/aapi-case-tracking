@@ -11,7 +11,7 @@ Priorities #1:
   bar/arrow button in the middle to expand map to full screen, bar to move to the right, arrow button changes direction   
 
 Next #2:  
-1. Admin can edit or delete own article. Superadmin can edit or delete any
+1. Add auth - only admin can add articles. Admin can edit or delete own article. Superadmin can edit or delete any
 2. Article View - how to handle next 25 - scroll fetch?
 3. When user clicks on pin on map, article view (appears if hidden) & changes to articles for that location (link on top to refresh to all locations)
 
@@ -30,7 +30,7 @@ IL 3/30: Set up basic views
 4/3: Set up redux flow, get 3 mock articles to render
 4/10: Display map & pins, create route for form
 Goal:
-4/11: Fix split screen view, display legend and custom pins, add Google Maps autocomplete for location field
+4/11: Fix split screen view, display legend and custom pins, add Google Maps autocomplete for location field, react timeline for article view
 4/17: Can add article to DB, can get articles from DB (update redux flow)
 4/18: Style article and map view, user click on pin functionality
 
