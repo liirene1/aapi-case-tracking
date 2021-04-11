@@ -1,101 +1,70 @@
-import React, { Component } from "react";
-import Geocode from "react-geocode";
+import React, { useState } from "react";
+
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import { connect } from "react-redux";
 import { Input, InputLabel, Select, MenuItem, Button } from '@material-ui/core';
 import { addArticle } from "../../../actions";
 import "./index.scss";
 import { GOOGLE_API_KEY } from "../../../keys";
 
-class CreateArticle extends Component {
-  state = {
-    date: "",
-    headline: "",
-    location: "",
-    newsLink: "",
-    donationLink: "",
-    violenceType: "assault",
-    isSubmitting: false,
-    isSaving: false,
-    isSaved: false,
-  };
+const CreateArticle = ({ articles, onAddArticle }) => {
+  const [date, setDate] = useState("");
+  const [headline, setHeadline] = useState("");
+  const [location, setLocation] = useState("");
+  const [newsLink, setNewsLink] = useState("");
+  const [donationLink, setDonationLink] = useState("");
+  const [violenceType, setViolenceType] = useState("assault");
 
-  componentDidMount() {
-    Geocode.setApiKey(GOOGLE_API_KEY);
-
-    Geocode.fromAddress("San Francisco").then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        return { lat, lng };
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
+  const handleSubmit = () => {
+    console.log("submit", location.label);
+    onAddArticle({ date, headline, location: location.label, newsLink, donationLink, violenceType});
   }
 
-  async getGeoPosition() {
-    Geocode.fromAddress(this.state.location).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        return { lat, lng };
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  return (
+    <form className="create-form">
+      <InputLabel> Date Event Occured (if not available, use article date)*</InputLabel>
+      <Input fullWidth required type="date" onChange={e => setDate(e.target.value)}/>
 
-  handleChange = (fieldName, value) => {
-    console.log("change", fieldName, value)
-    this.setState({ [fieldName]: value });
-  };
+      <InputLabel> Headline* </InputLabel>
+      <Input fullWidth required onChange={e => setHeadline(e.target.value)}/>
 
-  handleSubmit = () => {
-    console.log("submit");
-    const {date, headline, location, newsLink, donationLink, violenceType} = this.state;
-    //const { lat, lng } = await this.getGeoPosition();
-    //if lat, lng - dispatch action to save this to DB
-    //else display error "Can not save, please try again"
-    this.props.onAddArticle({ date, headline, location, newsLink, donationLink, violenceType});
-  }
+      <InputLabel> Location* </InputLabel>
+      <GooglePlacesAutocomplete
+        apiKey={GOOGLE_API_KEY}
+        selectProps={{
+          onChange: setLocation,
+        }}
+      />
 
-  //TODO: For location, use Google Maps autocomplete
-  render() {
-    return (
-      <form className="create-form">
-        <InputLabel> Date Event Occured (if not available, use article date)*</InputLabel>
-        <Input fullWidth required type="date" onChange={e => this.handleChange("date", e.target.value)}/>
-        <InputLabel> Headline* </InputLabel>
-        <Input fullWidth required onChange={e => this.handleChange("headline", e.target.value)}/>
-        <InputLabel> Location* </InputLabel>
-        <Input fullWidth required onChange={e => this.handleChange("location", e.target.value)}/>
-        <InputLabel> News Article Link* </InputLabel>
-        <Input fullWidth required onChange={e => this.handleChange("newLink", e.target.value)}/>
-        <InputLabel> GoFundMe or Donation Link </InputLabel>
-        <Input fullWidth onChange={e => this.handleChange("donationLink", e.target.value)}/>
-        <InputLabel> Type of Violence* </InputLabel>
-        <Select
-          required
-          fullWidth
-          name="violenceType"
-          id="violenceType"
-          defaultValue="assault"
-          onChange={e => this.handleChange("violenceType", e.target.value)}
-        >
-          <MenuItem value="assault">Physical Assault</MenuItem>
-          <MenuItem value="death">Death</MenuItem>
-        </Select>
-        <Button
-          className="submit-btn"
-          color="primary"
-          variant="outlined"
-          onClick={() => this.handleSubmit()}
-        >
-          Submit
-        </Button>
-      </form>
-    )
-  }
+      <InputLabel> News Article Link* </InputLabel>
+      <Input fullWidth required onChange={e => setNewsLink(e.target.value)}/>
+
+      <InputLabel> GoFundMe or Donation Link </InputLabel>
+      <Input fullWidth onChange={e => setDonationLink(e.target.value)}/>
+
+      <InputLabel> Type of Violence* </InputLabel>
+      <Select
+        required
+        fullWidth
+        name="violenceType"
+        id="violenceType"
+        defaultValue="assault"
+        onChange={e => setViolenceType(e.target.value)}
+      >
+        <MenuItem value="assault">Physical Assault</MenuItem>
+        <MenuItem value="death">Death</MenuItem>
+      </Select>
+
+      <Button
+        className="submit-btn"
+        color="primary"
+        variant="outlined"
+        onClick={() => handleSubmit()}
+      >
+        Submit
+      </Button>
+    </form>
+  )
 }
 
 //TODO: remove mapStateToProps
