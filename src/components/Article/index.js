@@ -22,7 +22,7 @@ const Article = ({ article }) => {
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineDot>
-          { violenceType === "assault" && <RoomIcon style={{ color:"orange" }}/> }
+          { violenceType === "assault" && <RoomIcon style={{ color:"yellow" }}/> }
           { violenceType === "death" && <RoomIcon style={{ color:"red" }}/> }
         </TimelineDot>
         <TimelineConnector />

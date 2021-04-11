@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-
+import { redDot, yellowDot } from "../../constants";
 import { GOOGLE_API_KEY } from "../../keys";
 
+
 class MapContainer extends Component {
-  state = {
-  };
 
   onMarkerClick = (id) => {
     console.log("clicked marker", id);
@@ -28,23 +27,20 @@ class MapContainer extends Component {
         google={this.props.google}
         zoom={initialZoomLevel}
         style={mapStyles}
-        initialCenter={
-          {
-            lat: 38.5,
-            lng: -98
-          }
-        }
+        initialCenter={{ lat: 38.5, lng: -98 }}
       >
         {articles.map(article => (
           <Marker
             key={article.id}
             position={{lat: article.lat, lng: article.lng}}
             onClick={() => this.onMarkerClick(article.id)}
+            icon= {{
+                url: article.violenceType === "assault" ? yellowDot : redDot
+            }}
           />
         ))}
       </Map>
     )
-
   }
 }
 
