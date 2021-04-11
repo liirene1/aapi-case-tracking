@@ -1,5 +1,12 @@
 import React, { Component } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import ArticleList from "./components/ArticleList";
+import MapContainer from "./components/MapContainer";
+import CreateArticle from "./components/Admin/CreateArticle";
 import ArrowRight from '@material-ui/icons/ArrowRight';
 import ArrowLeft from '@material-ui/icons/ArrowLeft';
 import './App.scss';
@@ -10,40 +17,44 @@ class App extends Component {
   }
 
   handleClick = (type) => {
+    console.log("clicked");
     this.setState({ display: type });
   }
 
   render() {
     const { display } = this.state;
+    console.log(display)
     return (
-      <div className="App">
-        { display === "split" && (
-          <div className="split-view">
-            <div className="map-container">
-              MAP
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <div className="App">
+              <div className="map-container">
+                <MapContainer display={display}/>
+              </div>
+              <div className="content-container">
+                <div className="divider" onClick={() => this.handleClick("map")}>
+                  {
+                    display === "split" ?
+                    <ArrowRight fontSize="large" onClick={() => this.handleClick("map")}/>
+                    :
+                    <ArrowLeft fontSize="large" onClick={() => this.handleClick("split")}/>
+                  }
+                </div>
+                {
+                  display === "split" &&
+                  <div className="article-container">
+                    <ArticleList />
+                  </div>
+                }
+              </div>
             </div>
-            <div className="divider">
-              Split divider
-              <ArrowRight onClick={() => this.handleClick("map")}/>
-            </div>
-            <div className="article-container">
-              <ArticleList />
-            </div>
-          </div>
-        )}
-
-        { display === "map" && (
-          <div className="map-view">
-            <div className="map-container">
-              MAP
-            </div>
-            <div className="divider">
-              Split divider
-              <ArrowLeft onClick={() => this.handleClick("split")}/>
-            </div>
-          </div>
-        )}
-      </div>
+          </Route>
+          <Route path="/admin">
+            <CreateArticle />
+          </Route>
+        </Switch>
+      </Router>
     );
   }
 }

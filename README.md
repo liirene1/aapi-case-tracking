@@ -3,7 +3,7 @@ Priorities #1:
 1. Display Map with pins
   Map has legend for pins - yellow = assault, red = death
 2. Display Article View (most recent 25)
-3. Admin - Add Article
+3. Admin - Add Article (/admin route)
   3a. Google Maps autocomplete for Location field
 4. Map/Article views look nicely styled
 5. Split screen functionality
@@ -13,23 +13,38 @@ Priorities #1:
 Next #2:  
 1. Admin can edit or delete own article. Superadmin can edit or delete any
 2. Article View - how to handle next 25 - scroll fetch?
-3. When user clicks on pin on map, modal pops up with articles for that location. Hides article view.
-4. Team Page - for our dev team & editor contributers
-  4a. Team Page has link to Admin signin page
+3. When user clicks on pin on map, article view (appears if hidden) & changes to articles for that location (link on top to refresh to all locations)
 
 Final #3:
 1. Google Analytics to track if people are visiting the site, location, do users come back
-2. WE NEED A NAME! 
+2. WE NEED A NAME for the site!
+3. Team Page - for our dev team & editor contributers
+  4a. Team Page has link to Admin signin page
+4. When article is within a week for location, pin will jump up and down (animation)
 
 
 V2: Mine data off social media or grab from AAPI database
 
 
-IL 3/30 Goal: Set up basic views
+IL 3/30: Set up basic views
 4/3: Set up redux flow, get 3 mock articles to render
-4/4: Split screen view - article on left, get map to render, get pins to display
-4/5: Display map & pins & legend  
+4/10: Display map & pins, create route for form
+Goal:
+4/11: Fix split screen view, display legend and custom pins, add Google Maps autocomplete for location field
+4/17: Can add article to DB, can get articles from DB (update redux flow)
+4/18: Style article and map view, user click on pin functionality
 
+
+Database fields:
+Article table:
+date: "", -> Date object?
+headline: "",
+location: "",
+newsLink: "",
+donationLink: "",
+violenceType: "",
+lat: "",
+lng: ""
 ------------------------------------------------------------------------------------------------------------
 
 

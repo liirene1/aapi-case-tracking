@@ -1,48 +1,36 @@
 .App {
   text-align: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh;
+  width: 100%;
+  display: block;
+  font-size: 24px;
   color: black;
+  overflow: hidden;
 }
 
-.divider {
-  width: 10vw;
+.content-container {
+  float:right;
+  display: inline-block;
+  height: 100vh;
 }
 
-.split-view {
-  > div {
-    display: inline-block;
-  }
-  .map-container {
-    width: 45vw;
-    float: left;
-  }
-
-  .divider {
-    float: left;
-  }
-
-  .article-container {
-    width: 40vw;
-    float: right;
-  }
+.divider svg{
+  width: 2vw;
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto;
+  background-color: blue;
+  float: left
 }
 
-.map-view {
-  div {
-    display: inline-block;
-  }
+.map-container {
+  float: left;
+  display: inline-block;
+}
 
-  .map-container {
-    width: 85vw;
-    float: left;
-  }
-
-  .divider {
-    float: left;
-  }
+.article-container {
+  width: 45vw;
+  height: 100vh;
+  overflow-y: scroll;
+  display: inline-block;
 }
